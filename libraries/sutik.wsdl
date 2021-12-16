@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap-env="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://localhost/feladat/szerver/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://localhost/feladat/szerver/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://localhost/feladat/szerver/"/>
+  </wsdl:types>
+  <wsdl:message name="getSutikRequest"/>
+  <wsdl:message name="getSutikResponse"/>
+  <wsdl:portType name="SutikPortType">
+    <wsdl:operation name="getSutik">
+      <wsdl:documentation/>
+      <wsdl:input message="tns:getSutikRequest"/>
+      <wsdl:output message="tns:getSutikResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SutikBinding" type="tns:SutikPortType">
+    <soap-env:binding xmlns="http://schemas.xmlsoap.org/wsdl/soap/" style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getSutik">
+      <soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://localhost/bead/libraries/sutiszerver.php?method=getSutik" style="rpc"/>
+      <wsdl:input>
+        <soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Sutik">
+    <wsdl:documentation/>
+    <wsdl:port name="SutikPort" binding="tns:SutikBinding">
+      <soap-env:address location="http://localhost/bead/libraries/sutiszerver.php"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
