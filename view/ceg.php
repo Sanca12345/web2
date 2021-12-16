@@ -2,6 +2,7 @@
     
     include_once 'header.php';
 ?>
+<title>Cég</title>
 <h1 style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; font-family: DauphinPlain; font-size: 70px; line-height: 90px; color: rgb(0, 0, 0); text-align: center;">
 Lorem Ipsum</h1>
 <h4 style="margin: 10px 10px 5px; padding: 0px; font-size: 14px; line-height: 18px; text-align: center; font-style: italic; color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif;">
