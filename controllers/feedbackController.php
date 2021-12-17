@@ -38,6 +38,8 @@ class FeedbackController
 
         if($this->feedbackModel->MakeAPost($data)){
         header("refresh");
+        redirect("../view/index.php");
+
         }else{
         die("Something went wrong");
         }

@@ -1,6 +1,7 @@
 <?php
     
     include_once 'header.php';
+    
 ?>
 <title>Cég</title>
 <h1 style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; font-family: DauphinPlain; font-size: 70px; line-height: 90px; color: rgb(0, 0, 0); text-align: center;">
