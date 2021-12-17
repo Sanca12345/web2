@@ -1,9 +1,16 @@
 <?php 
     include_once 'header.php';
     include_once '../controllers/feedbackController.php';
-
+    include_once '../helpers/session_helper.php';
     $fbController = new FeedbackController;
     $data = $fbController->GetAllPost();
+    
+    if(isset($_SESSION['usersId'])){
+        echo explode(" ", $_SESSION['usersName'])[0];
+    }else{
+        redirect("../view/login.php");
+    } 
+
 ?>
 <style>
 table, th, td{

@@ -2,6 +2,12 @@
 <?php
 include_once 'header.php';
 include_once '../helpers/session_helper.php';
+if(isset($_SESSION['usersId'])){
+    echo explode(" ", $_SESSION['usersName'])[0];
+}else{
+    redirect("../view/login.php");
+} 
+
 if(isset($_POST["datum1"])and isset($_POST["datum2"]))
 {
        $date1=$_POST["datum1"];

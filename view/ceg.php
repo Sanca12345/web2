@@ -1,7 +1,12 @@
 <?php
     
     include_once 'header.php';
-    
+    include_once '../helpers/session_helper.php';
+     if(isset($_SESSION['usersId'])){
+        echo explode(" ", $_SESSION['usersName'])[0];
+    }else{
+        redirect("../view/login.php");
+    } 
 ?>
 <title>Cég</title>
 <h1 style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; font-family: DauphinPlain; font-size: 70px; line-height: 90px; color: rgb(0, 0, 0); text-align: center;">
