@@ -12,7 +12,7 @@ public function getSutik()
         "sutik" => Array()];
     
     try{
-        $dbh = new PDO('mysql:host=localhost;dbname=test','root', '',
+        $dbh = new PDO('mysql:host=idbp.omega.c-host.hu;dbname=vkrxn3','vkrxn3', '123456789',
         [PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION]);
         $dbh->query('SET NAMES utf8 COLLATE utf8_hungarian_ci');
 
@@ -21,7 +21,6 @@ public function getSutik()
         $sth = $dbh->prepare($sql);
         $sth->execute([]);
         $eredmeny["sutik"] = $sth->fetchAll(PDO::FETCH_ASSOC);
-
     }
     catch(PDOException $e){
         $eredmeny["hibakod"] = 1;
@@ -38,7 +37,7 @@ public function getSutik()
 
 }
 $options = array(
-	"uri" => "http://localhost/bead/libraries/sutik.php");
+	"uri" => "http://vkrxn3web2.nhely.hu/libraries/sutik.php");
 	$server = new SoapServer(null, $options);
 	$server->setClass('Sutik');
 	$server->handle();

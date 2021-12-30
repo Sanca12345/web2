@@ -16,7 +16,7 @@
     <nav>
         <ul>
             <a href="index.php"><li>Home</li></a>
-            <a href="ceg.php"><li>Cégleírás</li></a>
+            <a href="Forum.php"><li>Forum</li></a>
             <a href="sutiCliens.php"><li>Sütik</li></a>
             <a href="mnbClient.php"><li>Árfolyamok</li></a>
             <?php if(!isset($_SESSION['usersId'])) : ?>

@@ -1,5 +1,13 @@
 <?php
 include_once 'header.php';
+
+if(isset($_SESSION['usersId'])){
+  echo explode(" ", $_SESSION['usersName'])[0];
+}else{
+  redirect("login.php");
+} 
+
+
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -10,8 +18,8 @@ include_once 'header.php';
 
   <?php 
   $options = array(
-    "location" => "http://localhost/bead/libraries/sutik.php",
-    "uri" => "http://localhost/bead/libraries/sutik.php",
+    "location" => "http://vkrxn3web2.nhely.hu/libraries/sutik.php",
+    "uri" => "http://vkrxn3web2.nhely.hu/libraries/sutik.php",
     'keep_alive' => false,
   );
 try{
@@ -67,23 +75,14 @@ th, td {
             foreach($sutiadat as $id => $elem){
                 switch ($id) {
                     case 'hibakod':
-                        {
-
-                        }
+                        { }
                         break;
                     case 'uzenet':
-                        {
-                            
-                        }
+                        {}
                         break;
                     case 'sutik':
                         {
                             foreach($elem as $suti){
-                            /*echo '<tr><td>' . $elem['nev'] . '?></td>';
-                            echo '*'.$id. '*'; */
-                            //var_dump($elem)   ;  
-                            //exit;
-                        
                     ?>
                     <tr>
                     <td><?php echo $suti['nev']; ?></td>

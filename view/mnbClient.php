@@ -5,7 +5,7 @@ include_once '../helpers/session_helper.php';
 if(isset($_SESSION['usersId'])){
     echo explode(" ", $_SESSION['usersName'])[0];
 }else{
-    redirect("../view/login.php");
+    redirect("login.php");
 } 
 
 if(isset($_POST["datum1"])and isset($_POST["datum2"]))
@@ -18,11 +18,7 @@ if(isset($_POST["datum1"])and isset($_POST["datum2"]))
        $currrates = $objClient->GetExchangeRates(['startDate' => $date1, 'endDate' => $date2, 'currencyNames' => "EUR"])->GetExchangeRatesResult;
        $dom_root = new DOMDocument();
        $dom_root->loadXML($currrates);
-       
-       
-       
        $searchNode = $dom_root->getElementsByTagName("Day");
-    
 }
 
 
@@ -117,9 +113,7 @@ foreach( $searchNode as $searchNode ) {
 <canvas id="myChart"></canvas>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
 <script>
-
 var chartdate = <?php echo json_encode(array_reverse($chartdate)); ?>;
 var chartrate = <?php echo json_encode(array_reverse($chartrate)); ?>;
 console.log(chartrate); 

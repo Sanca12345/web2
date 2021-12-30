@@ -3,6 +3,15 @@
 require_once '../models/Feedback.php';
 require_once '../helpers/session_helper.php';
 
+if(isset($_POST['basicPost'])){
+    /*echo "siker";
+    exit;*/
+    
+    $feedcr = new FeedbackController;
+    
+    $feedcr->MakeAPosts();
+    
+}
 
 
 
@@ -37,8 +46,8 @@ class FeedbackController
         
 
         if($this->feedbackModel->MakeAPost($data)){
-        header("refresh");
-        redirect("../view/index.php");
+        
+        redirect("../view/Forum.php");
 
         }else{
         die("Something went wrong");
@@ -48,15 +57,6 @@ class FeedbackController
 
 }
 
-if(isset($_POST['basicPost'])){
-    /*echo "siker";
-    exit;*/
-    
-    $feedcr = new FeedbackController;
-    
-    $feedcr->MakeAPosts();
-    
-}
 
 
 

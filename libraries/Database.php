@@ -7,10 +7,10 @@
     * Return rows and results
 */
 class Database {
-    private $host = 'localhost';
-    private $user = 'root';
-    private $pass = '';
-    private $dbname = 'test';
+    private $host = 'idbp.omega.c-host.hu';
+    private $user = 'vkrxn3';
+    private $pass = '123456789';
+    private $dbname = 'vkrxn3';
 
     //Will be the PDO object
     private $dbh;
@@ -19,19 +19,23 @@ class Database {
 
     public function __construct(){
         //Set DSN
+        
         $dsn = 'mysql:host='.$this->host.';dbname='.$this->dbname;
+        
         $options = array(
             PDO::ATTR_PERSISTENT => true,
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+            
         );
-
+        
         //Create PDO instance
         try{
             $this->dbh = new PDO($dsn, $this->user, $this->pass, $options);
         }catch(PDOException $e){
             $this->error = $e->getMessage();
             echo $this->error;
-        }
+            
+        }   
     }
 
     //Prepare statement with query
@@ -63,19 +67,16 @@ class Database {
     public function execute(){
         return $this->stmt->execute();
     }
-
     //Return multiple records
     public function resultSet(){
         $this->execute();
         return $this->stmt->fetchAll(PDO::FETCH_OBJ);
     }
-
     //Return a single record
     public function single(){
         $this->execute();
         return $this->stmt->fetch(PDO::FETCH_OBJ);
     }
-
     //Get row count
     public function rowCount(){
         return $this->stmt->rowCount();
